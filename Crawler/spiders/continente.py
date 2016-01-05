@@ -13,9 +13,9 @@ class ContinenteSpider(scrapy.Spider):
     def __init__(self, code=''):
         self.start_urls = ['http://www.continente.pt/pt-pt/public/Pages/searchresults.aspx?k=%s' % code]
         self.allowed_domains = ["continente.pt"]
-        
+
 
     def parse(self, response):
         sel = Selector(response)
-        continewnte_result = sel.xpath('//div[@class = "pricePerUnit"]/text()').extract()
+        continewnte_result = sel.xpath('//div[@class = "priceFirstRow"]/text()').extract()
         print continewnte_result[0]    
